@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Wallace Lira - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* TELA DE LOGIN */
+        #loginScreen {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        #loginScreen h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+        }
+
+        /* TELA DO PAINEL (depois do login) */
+        #dashboardScreen {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #dashboardScreen header {
+            background: #333;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #dashboardScreen header h1 {
+            font-size: 20px;
+        }
+
+        #dashboardScreen header .user-info {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        #dashboardScreen header .user-info span {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        #dashboardScreen header button {
+            padding: 8px 16px;
+            background: #e74c3c;
+            font-size: 14px;
+        }
+
+        #dashboardScreen header button:hover {
+            background: #c0392b;
+        }
+
+        #dashboardContent {
+            flex: 1;
+            overflow: auto;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            #loginScreen {
+                padding: 30px 20px;
+            }
+
+            #dashboardScreen header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #dashboardScreen header .user-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TELA DE LOGIN -->
+    <div id="loginScreen">
+        <h1>🔐 Sistema Wallace Lira</h1>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Sua senha" required>
+        </div>
+        <button onclick="login()" id="loginBtn">Entrar</button>
+        <div class="loading" id="loadingLogin">Entrando...</div>
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <!-- TELA DO PAINEL (depois do login) -->
+    <div id="dashboardScreen">
+        <header>
+            <h1>📊 Sistema Wallace Lira</h1>
+            <div class="user-info">
+                <span id="userEmail"></span>
+                <button onclick="logout()">Sair</button>
+            </div>
+        </header>
+        <div id="dashboardContent">
+            <!-- O conteúdo do painel vai aqui -->
+        </div>
+    </div>
+
+    <!-- FIREBASE SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCvXsD2v_AGx3vN3kM2z_uIllkRO-Lr2pc",
+            authDomain: "sistema-wallace-lira.firebaseapp.com",
+            projectId: "sistema-wallace-lira",
+            storageBucket: "sistema-wallace-lira.firebasestorage.app",
+            messagingSenderId: "648799873363",
+            appId: "1:648799873363:web:28e6796ee70afc3a4b99a6"
+        };
+
+        // Inicializar Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // FUNÇÃO DE LOGIN
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
+            const loadingDiv = document.getElementById('loadingLogin');
+            const loginBtn = document.getElementById('loginBtn');
+
+            // Limpar mensagens anteriores
+            errorDiv.style.display = 'none';
+            errorDiv.textContent = '';
+
+            // Validação básica
+            if (!email || !password) {
+                errorDiv.textContent = 'Preencha email e senha';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            // Mostrar loading
+            loadingDiv.style.display = 'block';
+            loginBtn.disabled = true;
+
+            // Autenticar com Firebase
+            auth.signInWithEmailAndPassword(email, password)
+                .then(userCredential => {
+                    // Login bem-sucedido
+                    const user = userCredential.user;
+                    showDashboard(user.email);
+                })
+                .catch(error => {
+                    // Erro no login
+                    loadingDiv.style.display = 'none';
+                    loginBtn.disabled = false;
+                    
+                    if (error.code === 'auth/user-not-found') {
+                        errorDiv.textContent = 'Usuário não encontrado';
+                    } else if (error.code === 'auth/wrong-password') {
+                        errorDiv.textContent = 'Senha incorreta';
+                    } else if (error.code === 'auth/invalid-email') {
+                        errorDiv.textContent = 'Email inválido';
+                    } else {
+                        errorDiv.textContent = error.message;
+                    }
+                    errorDiv.style.display = 'block';
+                });
+        }
+
+        // MOSTRAR O PAINEL
+        function showDashboard(userEmail) {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboardScreen').style.display = 'flex';
+            document.getElementById('userEmail').textContent = `Olá, ${userEmail}`;
+
+            // Carregar o painel do Sistema Wallace Lira
+            loadDashboard();
+        }
+
+        // CARREGAR O PAINEL (HTML do Sistema Wallace Lira)
+        function loadDashboard() {
+            const dashboardContent = document.getElementById('dashboardContent');
+            
+            // Opção 1: Se o arquivo do painel está na mesma pasta
+            fetch('Sistema_Wallace_Lira_Completo.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Extrair só o conteúdo <body> (sem tags html/head/body)
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const bodyContent = doc.body.innerHTML;
+                    dashboardContent.innerHTML = bodyContent;
+                })
+                .catch(error => {
+                    dashboardContent.innerHTML = '<p style="padding: 20px; color: red;">Erro ao carregar o painel. Verifique se o arquivo "Sistema_Wallace_Lira_Completo.html" está na mesma pasta.</p>';
+                    console.error('Erro:', error);
+                });
+        }
+
+        // FUNÇÃO DE LOGOUT
+        function logout() {
+            auth.signOut().then(() => {
+                document.getElementById('loginScreen').style.display = 'block';
+                document.getElementById('dashboardScreen').style.display = 'none';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+            });
+        }
+
+        // Verificar se já está logado ao carregar a página
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                showDashboard(user.email);
+            } else {
+                document.getElementById('loginScreen').style.display = 'block';
+                document.getElementById('dashboardScreen').style.display = 'none';
+            }
+        });
+
+        // Permitir login ao pressionar Enter
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                login();
+            }
+        });
+    </script>
+</body>
+</html>
