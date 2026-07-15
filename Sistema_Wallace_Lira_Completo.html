@@ -233,7 +233,7 @@
     <div class="kpi">
       <div class="lbl">Total operacional</div>
       <div class="val">R$ 11.045</div>
-      <div class="sub">Necessidade bruta R$ 14.245 · líquida R$ 13.774</div>
+      <div class="sub">Necessidade bruta R$ 14.245 · líquida R$ 13.290</div>
     </div>
     <div class="kpi">
       <div class="lbl">Caixa variável</div>
@@ -324,7 +324,7 @@
     </div>
     <div class="chart-box" style="height:150px"><canvas id="cVariavel"></canvas></div>
     <div class="callout ok">ECC zerado. LREI0001 (Manutenção → Variável) + extinção PIX Wallace resolveram o estouro anterior. Diferença de R$158,76 investigada e resolvida. Reforço adicional de R$57,04 do reembolso Wärtsilä confirmado em 14/07/2026, preparando a caixa para a chegada da família da Vanessa em 17/07/2026.</div>
-    <div class="callout warn">LREI0001 (R$178,64 devidos à Manutenção) segue ativo — Caixa Variável já tem folga (R$548,20 acima da meta) para liquidar quando confirmado.</div>
+    <div class="callout warn">LREI0001 (R$178,64 devidos à Manutenção) segue ativo — Caixa Variável tem R$348,20 de folga acima da meta (saldo real R$2.348,20 vs meta R$2.000,00), suficiente para liquidar quando confirmado.</div>
   </div>
 
   <!-- 7 -->
@@ -348,8 +348,11 @@
   <div class="section-num"><span class="n">09</span><h2>Visa Infinite</h2></div>
   <div class="grid-2">
     <div class="card">
-      <div style="font-size:0.72rem;color:var(--text-mid);margin-bottom:0.3rem">Total comprometido</div>
-      <div style="font-size:1.4rem;font-weight:700;margin-bottom:0.7rem">R$ 8.551,76</div>
+      <div style="display:flex;gap:1.2rem;margin-bottom:0.7rem">
+        <div><div style="font-size:0.72rem;color:var(--text-mid);margin-bottom:0.2rem">Total comprometido</div><div style="font-size:1.4rem;font-weight:700">R$ 8.551,76</div></div>
+        <div><div style="font-size:0.72rem;color:var(--text-mid);margin-bottom:0.2rem">Pessoal (s/ corporativo)</div><div style="font-size:1.4rem;font-weight:700;color:var(--amber)">R$ 8.068,33</div></div>
+      </div>
+      <div style="font-size:0.68rem;color:var(--text-dim);margin-bottom:0.6rem">Corporativo (R$483,43) é 100% reembolsável pela Wärtsilä — não é dívida pessoal real, mesmo estando na mesma fatura.</div>
       <div class="row"><span class="k">Compras Wallace (LRW)</span><span class="v">R$ 1.608,23</span></div>
       <div class="row"><span class="k">Compras Vanessa (LRV)</span><span class="v">R$ 270,02</span></div>
       <div class="row"><span class="k">Parcelas (LRP)</span><span class="v">R$ 2.414,56</span></div>
@@ -449,60 +452,62 @@
     </div>
 
     <div id="lrw" class="pane active">
-      <table><thead><tr><th>TX</th><th>Estabelecimento</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TX000001</td><td>Magalu</td><td class="r">R$ 66,89</td></tr>
-      <tr><td class="mono">TX000005</td><td>Tapioca</td><td class="r">R$ 81,00</td></tr>
-      <tr><td class="mono">TX000006</td><td>Mercado Clovis</td><td class="r">R$ 8,50</td></tr>
-      <tr><td class="mono">TX000007</td><td>Abastece Aí</td><td class="r">R$ 103,00</td></tr>
-      <tr><td class="mono">TX000008</td><td>Ki Frango</td><td class="r">R$ 64,00</td></tr>
-      <tr><td class="mono">TX000009</td><td>Aleks Bolos</td><td class="r">R$ 44,00</td></tr>
-      <tr><td class="mono">TX000010</td><td>Clauveniência</td><td class="r">R$ 45,00</td></tr>
-      <tr><td class="mono">TX000012</td><td>Mendonça Pasteis</td><td class="r">R$ 75,97</td></tr>
-      <tr><td class="mono">TX000013</td><td>H57 Store</td><td class="r">R$ 9,19</td></tr>
-      <tr><td class="mono">TX000014</td><td>Elias Andrade</td><td class="r">R$ 120,00</td></tr>
-      <tr><td class="mono">TX000015</td><td>Tamylla</td><td class="r">R$ 32,00</td></tr>
-      <tr><td class="mono">TX000016</td><td>Tamylla</td><td class="r">R$ 36,00</td></tr>
-      <tr><td class="mono">TX000017</td><td>Pizza Nostra</td><td class="r">R$ 241,00</td></tr>
-      <tr><td class="mono">TX000018</td><td>Brothers Club</td><td class="r">R$ 85,00</td></tr>
-      <tr><td class="mono">TX000020</td><td>Hortifruti</td><td class="r">R$ 10,00</td></tr>
-      <tr><td class="mono">TX000021</td><td>H57 Store</td><td class="r">R$ 9,99</td></tr>
-      <tr><td class="mono">TX000022</td><td>Geroncio</td><td class="r">R$ 60,00</td></tr>
-      <tr><td class="mono">TX000025</td><td>Mini Mercado</td><td class="r">R$ 40,98</td></tr>
-      <tr><td class="mono">TX000026</td><td>Panificadora</td><td class="r">R$ 23,80</td></tr>
-      <tr><td class="mono">TX000027</td><td>Amazon Prime Video</td><td class="r">R$ 9,99</td></tr>
-      <tr><td class="mono">TX000029</td><td>Madoska Sorvetes</td><td class="r">R$ 127,43</td></tr>
-      <tr><td class="mono">TX000030</td><td>Pastianne Restaurante</td><td class="r">R$ 126,28</td></tr>
-      <tr><td class="mono">TXR000003</td><td>Pague Menos</td><td class="r">R$ 75,87</td></tr>
-      <tr><td class="mono">TX000031</td><td>H57Store</td><td class="r">R$ 40,98</td></tr>
-      <tr><td class="mono">TX000032</td><td>Sonia Marmitaria</td><td class="r">R$ 5,00</td></tr>
-      <tr><td class="mono">TX000034</td><td>H57Store</td><td class="r">R$ 26,36</td></tr>
-      <tr><td class="mono">TX000035</td><td>Anthropic API Credits</td><td class="r">R$ 20,00</td></tr>
-      <tr><td class="mono">TX000036</td><td>Anthropic API Credits</td><td class="r">R$ 20,00</td></tr>
-      <tr><td class="mono">TX000078</td><td>H57Store</td><td class="r">R$ 25,93</td></tr>
-      <tr><td class="mono">TX000079</td><td>Anthropic API Credits</td><td class="r">R$ 20,00</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Estabelecimento</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TX000001</td><td class="mono">—</td><td>Magalu</td><td class="r">R$ 66,89</td></tr>
+      <tr><td class="mono">TX000005</td><td class="mono">—</td><td>Tapioca</td><td class="r">R$ 81,00</td></tr>
+      <tr><td class="mono">TX000006</td><td class="mono">—</td><td>Mercado Clovis</td><td class="r">R$ 8,50</td></tr>
+      <tr><td class="mono">TX000007</td><td class="mono">—</td><td>Abastece Aí</td><td class="r">R$ 103,00</td></tr>
+      <tr><td class="mono">TX000008</td><td class="mono">—</td><td>Ki Frango</td><td class="r">R$ 64,00</td></tr>
+      <tr><td class="mono">TX000009</td><td class="mono">—</td><td>Aleks Bolos</td><td class="r">R$ 44,00</td></tr>
+      <tr><td class="mono">TX000010</td><td class="mono">—</td><td>Clauveniência</td><td class="r">R$ 45,00</td></tr>
+      <tr><td class="mono">TX000012</td><td class="mono">—</td><td>Mendonça Pasteis</td><td class="r">R$ 75,97</td></tr>
+      <tr><td class="mono">TX000013</td><td class="mono">—</td><td>H57 Store</td><td class="r">R$ 9,19</td></tr>
+      <tr><td class="mono">TX000014</td><td class="mono">—</td><td>Elias Andrade</td><td class="r">R$ 120,00</td></tr>
+      <tr><td class="mono">TX000015</td><td class="mono">—</td><td>Tamylla</td><td class="r">R$ 32,00</td></tr>
+      <tr><td class="mono">TX000016</td><td class="mono">—</td><td>Tamylla</td><td class="r">R$ 36,00</td></tr>
+      <tr><td class="mono">TX000017</td><td class="mono">—</td><td>Pizza Nostra</td><td class="r">R$ 241,00</td></tr>
+      <tr><td class="mono">TX000018</td><td class="mono">—</td><td>Brothers Club</td><td class="r">R$ 85,00</td></tr>
+      <tr><td class="mono">TX000020</td><td class="mono">—</td><td>Hortifruti</td><td class="r">R$ 10,00</td></tr>
+      <tr><td class="mono">TX000021</td><td class="mono">—</td><td>H57 Store</td><td class="r">R$ 9,99</td></tr>
+      <tr><td class="mono">TX000022</td><td class="mono">—</td><td>Geroncio</td><td class="r">R$ 60,00</td></tr>
+      <tr><td class="mono">TX000025</td><td class="mono">—</td><td>Mini Mercado</td><td class="r">R$ 40,98</td></tr>
+      <tr><td class="mono">TX000026</td><td class="mono">—</td><td>Panificadora</td><td class="r">R$ 23,80</td></tr>
+      <tr><td class="mono">TX000027</td><td class="mono">—</td><td>Amazon Prime Video</td><td class="r">R$ 9,99</td></tr>
+      <tr><td class="mono">TX000029</td><td class="mono">—</td><td>Madoska Sorvetes</td><td class="r">R$ 127,43</td></tr>
+      <tr><td class="mono">TX000030</td><td class="mono">12/07</td><td>Pastianne Restaurante</td><td class="r">R$ 126,28</td></tr>
+      <tr><td class="mono">TXR000003</td><td class="mono">—</td><td>Pague Menos</td><td class="r">R$ 75,87</td></tr>
+      <tr><td class="mono">TX000031</td><td class="mono">10/07</td><td>H57Store</td><td class="r">R$ 40,98</td></tr>
+      <tr><td class="mono">TX000032</td><td class="mono">11/07</td><td>Sonia Marmitaria</td><td class="r">R$ 5,00</td></tr>
+      <tr><td class="mono">TX000034</td><td class="mono">12/07</td><td>H57Store</td><td class="r">R$ 26,36</td></tr>
+      <tr><td class="mono">TX000035</td><td class="mono">12/07</td><td>Anthropic API Credits</td><td class="r">R$ 20,00</td></tr>
+      <tr><td class="mono">TX000036</td><td class="mono">12/07</td><td>Anthropic API Credits</td><td class="r">R$ 20,00</td></tr>
+      <tr><td class="mono">TX000078</td><td class="mono">13/07</td><td>H57Store</td><td class="r">R$ 25,93</td></tr>
+      <tr><td class="mono">TX000079</td><td class="mono">14/07</td><td>Anthropic API Credits</td><td class="r">R$ 20,00</td></tr>
       </tbody></table>
+      <div style="font-size:0.66rem;color:var(--text-dim);margin-top:0.4rem">— = data não registrada no lançamento original (retroativo, sem rastro de data confiável)</div>
       <div class="tfoot"><span>30 lançamentos · Próximo: TX000080</span><span class="total">R$ 1.654,16</span></div>
     </div>
 
     <div id="lrv" class="pane">
-      <table><thead><tr><th>TX</th><th>Estabelecimento</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TX000019</td><td>Padaria Dorgival</td><td class="r">R$ 31,70</td></tr>
-      <tr><td class="mono">TX000023</td><td>Dorgival</td><td class="r">R$ 21,30</td></tr>
-      <tr><td class="mono">TX000024</td><td>Mini Mercado</td><td class="r">R$ 9,99</td></tr>
-      <tr><td class="mono">TX000028</td><td>H57Store</td><td class="r">R$ 9,88</td></tr>
-      <tr><td class="mono">TXR000001</td><td>Carolina</td><td class="r">R$ 65,00</td></tr>
-      <tr><td class="mono">TXR000002</td><td>Panificadora</td><td class="r">R$ 22,00</td></tr>
-      <tr><td class="mono">TXR000004</td><td>H57 Store</td><td class="r">R$ 15,97</td></tr>
-      <tr><td class="mono">TXR000005</td><td>Drogaria Drogavista</td><td class="r">R$ 45,19</td></tr>
-      <tr><td class="mono">TXR000006</td><td>Dorgival de Oliveira B</td><td class="r">R$ 34,00</td></tr>
-      <tr><td class="mono">TXR000007</td><td>H57Store</td><td class="r">R$ 9,99</td></tr>
-      <tr><td class="mono">TX000033</td><td>Sonia Marmitaria</td><td class="r">R$ 5,00</td></tr>
-      <tr><td class="mono">TX000002</td><td>Uber (Família)</td><td class="r">R$ 21,98</td></tr>
-      <tr><td class="mono">TX000003</td><td>Uber (Família)</td><td class="r">R$ 21,74</td></tr>
-      <tr><td class="mono">TX000004</td><td>Uber (Família)</td><td class="r">R$ 24,78</td></tr>
-      <tr><td class="mono">TX000011</td><td>Uber (Família)</td><td class="r">R$ 9,21</td></tr>
-      <tr><td class="mono">TX000076</td><td>DL</td><td class="r">R$ 24,03</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Estabelecimento</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TX000019</td><td class="mono">—</td><td>Padaria Dorgival</td><td class="r">R$ 31,70</td></tr>
+      <tr><td class="mono">TX000023</td><td class="mono">—</td><td>Dorgival</td><td class="r">R$ 21,30</td></tr>
+      <tr><td class="mono">TX000024</td><td class="mono">—</td><td>Mini Mercado</td><td class="r">R$ 9,99</td></tr>
+      <tr><td class="mono">TX000028</td><td class="mono">10/07</td><td>H57Store</td><td class="r">R$ 9,88</td></tr>
+      <tr><td class="mono">TXR000001</td><td class="mono">—</td><td>Carolina</td><td class="r">R$ 65,00</td></tr>
+      <tr><td class="mono">TXR000002</td><td class="mono">—</td><td>Panificadora</td><td class="r">R$ 22,00</td></tr>
+      <tr><td class="mono">TXR000004</td><td class="mono">—</td><td>H57 Store</td><td class="r">R$ 15,97</td></tr>
+      <tr><td class="mono">TXR000005</td><td class="mono">—</td><td>Drogaria Drogavista</td><td class="r">R$ 45,19</td></tr>
+      <tr><td class="mono">TXR000006</td><td class="mono">—</td><td>Dorgival de Oliveira B</td><td class="r">R$ 34,00</td></tr>
+      <tr><td class="mono">TXR000007</td><td class="mono">10/07</td><td>H57Store</td><td class="r">R$ 9,99</td></tr>
+      <tr><td class="mono">TX000033</td><td class="mono">12/07</td><td>Sonia Marmitaria</td><td class="r">R$ 5,00</td></tr>
+      <tr><td class="mono">TX000002</td><td class="mono">—</td><td>Uber (Família)</td><td class="r">R$ 21,98</td></tr>
+      <tr><td class="mono">TX000003</td><td class="mono">—</td><td>Uber (Família)</td><td class="r">R$ 21,74</td></tr>
+      <tr><td class="mono">TX000004</td><td class="mono">—</td><td>Uber (Família)</td><td class="r">R$ 24,78</td></tr>
+      <tr><td class="mono">TX000011</td><td class="mono">—</td><td>Uber (Família)</td><td class="r">R$ 9,21</td></tr>
+      <tr><td class="mono">TX000076</td><td class="mono">13/07</td><td>DL</td><td class="r">R$ 24,03</td></tr>
       </tbody></table>
+      <div style="font-size:0.66rem;color:var(--text-dim);margin-top:0.4rem">— = data não registrada no lançamento original</div>
       <div class="tfoot"><span>16 lançamentos</span><span class="total">R$ 382,76</span></div>
     </div>
 
@@ -522,23 +527,24 @@
     </div>
 
     <div id="lrp" class="pane">
-      <table><thead><tr><th>TX</th><th>Compra</th><th>Parc.</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TXP000001</td><td>Teacher Matias</td><td class="mono">4/12</td><td class="r">R$ 120,00</td></tr>
-      <tr><td class="mono">TXP000002</td><td>DeckFriend</td><td class="mono">4/12</td><td class="r">R$ 58,64</td></tr>
-      <tr><td class="mono">TXP000003</td><td>Korpos Estética</td><td class="mono">7/12</td><td class="r">R$ 189,99</td></tr>
-      <tr><td class="mono">TXP000004</td><td>RL Artesão</td><td class="mono">2/5</td><td class="r">R$ 66,87</td></tr>
-      <tr><td class="mono">TXP000005</td><td>Mercado Livre</td><td class="mono">2/4</td><td class="r">R$ 38,28</td></tr>
-      <tr><td class="mono">TXP000006</td><td>Mercado Livre</td><td class="mono">2/4</td><td class="r">R$ 68,01</td></tr>
-      <tr><td class="mono">TXP000007</td><td>Mercado Livre MP</td><td class="mono">5/6</td><td class="r">R$ 48,33</td></tr>
-      <tr><td class="mono">TXP000008</td><td>Seguro Tokio Marine</td><td class="mono">7/10</td><td class="r">R$ 200,99</td></tr>
-      <tr class="last-parcel"><td class="mono">TXP000009</td><td>Aram Beach Hotel 🔚</td><td class="mono">2/2</td><td class="r">R$ 486,64</td></tr>
-      <tr><td class="mono">TXP000010</td><td>PicPay Wallace Patri</td><td class="mono">11/12</td><td class="r">R$ 183,47</td></tr>
-      <tr><td class="mono">TXP000015</td><td>Kinesioceteos</td><td class="mono">3/5</td><td class="r">R$ 74,85</td></tr>
-      <tr class="last-parcel"><td class="mono">TXP000011</td><td>Hub Smart Home 🔚</td><td class="mono">2/2</td><td class="r">R$ 36,49</td></tr>
-      <tr class="last-parcel"><td class="mono">TXP000012</td><td>Edilson Lourenço 🔚</td><td class="mono">2/2</td><td class="r">R$ 425,00</td></tr>
-      <tr class="last-parcel"><td class="mono">TXP000013</td><td>Silmara Macedo 🔚</td><td class="mono">2/2</td><td class="r">R$ 375,00</td></tr>
-      <tr class="last-parcel"><td class="mono">TXP000014</td><td>Hotmart Fernando 🔚</td><td class="mono">12/12</td><td class="r">R$ 42,00</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Compra</th><th>Parc.</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TXP000001</td><td class="mono">—</td><td>Teacher Matias</td><td class="mono">4/12</td><td class="r">R$ 120,00</td></tr>
+      <tr><td class="mono">TXP000002</td><td class="mono">—</td><td>DeckFriend</td><td class="mono">4/12</td><td class="r">R$ 58,64</td></tr>
+      <tr><td class="mono">TXP000003</td><td class="mono">—</td><td>Korpos Estética</td><td class="mono">7/12</td><td class="r">R$ 189,99</td></tr>
+      <tr><td class="mono">TXP000004</td><td class="mono">—</td><td>RL Artesão</td><td class="mono">2/5</td><td class="r">R$ 66,87</td></tr>
+      <tr><td class="mono">TXP000005</td><td class="mono">—</td><td>Mercado Livre</td><td class="mono">2/4</td><td class="r">R$ 38,28</td></tr>
+      <tr><td class="mono">TXP000006</td><td class="mono">—</td><td>Mercado Livre</td><td class="mono">2/4</td><td class="r">R$ 68,01</td></tr>
+      <tr><td class="mono">TXP000007</td><td class="mono">—</td><td>Mercado Livre MP</td><td class="mono">5/6</td><td class="r">R$ 48,33</td></tr>
+      <tr><td class="mono">TXP000008</td><td class="mono">—</td><td>Seguro Tokio Marine</td><td class="mono">7/10</td><td class="r">R$ 200,99</td></tr>
+      <tr class="last-parcel"><td class="mono">TXP000009</td><td class="mono">—</td><td>Aram Beach Hotel 🔚</td><td class="mono">2/2</td><td class="r">R$ 486,64</td></tr>
+      <tr><td class="mono">TXP000010</td><td class="mono">—</td><td>PicPay Wallace Patri</td><td class="mono">11/12</td><td class="r">R$ 183,47</td></tr>
+      <tr><td class="mono">TXP000015</td><td class="mono">—</td><td>Kinesioceteos</td><td class="mono">3/5</td><td class="r">R$ 74,85</td></tr>
+      <tr class="last-parcel"><td class="mono">TXP000011</td><td class="mono">—</td><td>Hub Smart Home 🔚</td><td class="mono">2/2</td><td class="r">R$ 36,49</td></tr>
+      <tr class="last-parcel"><td class="mono">TXP000012</td><td class="mono">—</td><td>Edilson Lourenço 🔚</td><td class="mono">2/2</td><td class="r">R$ 425,00</td></tr>
+      <tr class="last-parcel"><td class="mono">TXP000013</td><td class="mono">—</td><td>Silmara Macedo 🔚</td><td class="mono">2/2</td><td class="r">R$ 375,00</td></tr>
+      <tr class="last-parcel"><td class="mono">TXP000014</td><td class="mono">—</td><td>Hotmart Fernando 🔚</td><td class="mono">12/12</td><td class="r">R$ 42,00</td></tr>
       </tbody></table>
+      <div style="font-size:0.66rem;color:var(--text-dim);margin-top:0.4rem">— = data de origem não registrada no ERP (parcelamentos abertos antes do controle de data por lançamento)</div>
       <div class="callout warn">Alívio de R$1.548,60/mês a partir de agosto</div>
       <div class="tfoot"><span>15 lançamentos · âmbar = última parcela</span><span class="total">R$ 2.414,56</span></div>
     </div>
@@ -574,59 +580,61 @@
 
     <div id="lrcon" class="pane">
       <table><thead><tr><th>TX</th><th>Descrição</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TXCON000001</td><td>Porto Consórcio (complementar)</td><td class="r">R$ 501,32</td></tr>
-      <tr><td class="mono">TXCON000002</td><td>Porto Consórcio (principal)</td><td class="r">R$ 1.449,45</td></tr>
+      <tr><td class="mono">TXCON000001</td><td>Porto Consórcio (Carro)</td><td class="r">R$ 501,32</td></tr>
+      <tr><td class="mono">TXCON000002</td><td>Porto Consórcio (Casa Nova)</td><td class="r">R$ 1.449,45</td></tr>
       </tbody></table>
       <div class="tfoot"><span>2 lançamentos</span><span class="total">R$ 1.950,77</span></div>
     </div>
 
     <div id="lrc" class="pane">
-      <table><thead><tr><th>TX</th><th>Estabelecimento</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TX22001</td><td>LM Service</td><td class="r">R$ 102,96</td></tr>
-      <tr><td class="mono">TX22002</td><td>Porto Gallo</td><td class="r">R$ 42,56</td></tr>
-      <tr><td class="mono">TX22003</td><td>Café da Villa</td><td class="r">R$ 150,00</td></tr>
-      <tr><td class="mono">TX22004</td><td>La Ursa</td><td class="r">R$ 146,62</td></tr>
-      <tr><td class="mono">TX22005</td><td>Cacau Show Café</td><td class="r">R$ 19,80</td></tr>
-      <tr><td class="mono">TX22006</td><td>Cacau Show Sorvete</td><td class="r">R$ 21,49</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Estabelecimento</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TX22001</td><td class="mono">—</td><td>LM Service</td><td class="r">R$ 102,96</td></tr>
+      <tr><td class="mono">TX22002</td><td class="mono">—</td><td>Porto Gallo</td><td class="r">R$ 42,56</td></tr>
+      <tr><td class="mono">TX22003</td><td class="mono">—</td><td>Café da Villa</td><td class="r">R$ 150,00</td></tr>
+      <tr><td class="mono">TX22004</td><td class="mono">—</td><td>La Ursa</td><td class="r">R$ 146,62</td></tr>
+      <tr><td class="mono">TX22005</td><td class="mono">—</td><td>Cacau Show Café</td><td class="r">R$ 19,80</td></tr>
+      <tr><td class="mono">TX22006</td><td class="mono">—</td><td>Cacau Show Sorvete</td><td class="r">R$ 21,49</td></tr>
       </tbody></table>
+      <div style="font-size:0.66rem;color:var(--text-dim);margin-top:0.4rem">— = data não registrada no ERP · 100% reembolsável pela Wärtsilä (prioridade 2 na fila de reembolso)</div>
       <div class="tfoot"><span>6 lançamentos · Reembolso pendente R$483,43</span><span class="total">R$ 483,43</span></div>
     </div>
 
     <div id="lrmp" class="pane">
-      <table><thead><tr><th>TX</th><th>Descrição</th><th>Parc.</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TXMP000001</td><td>Mercado Livre</td><td class="mono">3/6</td><td class="r">R$ 56,39</td></tr>
-      <tr><td class="mono">TXMP000002</td><td>Mercado Livre</td><td class="mono">6/12</td><td class="r">R$ 106,04</td></tr>
-      <tr><td class="mono">TXMP000003</td><td>Mercado Livre</td><td class="mono">6/8</td><td class="r">R$ 50,40</td></tr>
-      <tr class="last-parcel"><td class="mono">TXMP000004</td><td>Mercado Livre 🔚</td><td class="mono">6/6</td><td class="r">R$ 68,36</td></tr>
-      <tr><td class="mono">TXMP000005</td><td>Mercado Livre</td><td class="mono">10/24</td><td class="r">R$ 166,62</td></tr>
-      <tr><td class="mono">TXMP000006</td><td>Mercado Livre</td><td class="mono">3/6</td><td class="r">R$ 23,66</td></tr>
-      <tr><td class="mono">TXMP000007</td><td>Transporte Recife (volta)</td><td class="mono">corp.</td><td class="r">R$ 638,94</td></tr>
-      <tr><td class="mono">TXMP000008</td><td>Transporte Recife (ida)</td><td class="mono">corp.</td><td class="r">R$ 638,94</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Descrição</th><th>Parc.</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TXMP000001</td><td class="mono">—</td><td>Mercado Livre</td><td class="mono">3/6</td><td class="r">R$ 56,39</td></tr>
+      <tr><td class="mono">TXMP000002</td><td class="mono">—</td><td>Mercado Livre</td><td class="mono">6/12</td><td class="r">R$ 106,04</td></tr>
+      <tr><td class="mono">TXMP000003</td><td class="mono">—</td><td>Mercado Livre</td><td class="mono">6/8</td><td class="r">R$ 50,40</td></tr>
+      <tr class="last-parcel"><td class="mono">TXMP000004</td><td class="mono">—</td><td>Mercado Livre 🔚</td><td class="mono">6/6</td><td class="r">R$ 68,36</td></tr>
+      <tr><td class="mono">TXMP000005</td><td class="mono">—</td><td>Mercado Livre</td><td class="mono">10/24</td><td class="r">R$ 166,62</td></tr>
+      <tr><td class="mono">TXMP000006</td><td class="mono">19/05</td><td>Mercado Livre</td><td class="mono">3/6</td><td class="r">R$ 23,66</td></tr>
+      <tr><td class="mono">TXMP000007</td><td class="mono">02/07</td><td>Transporte Recife (volta)</td><td class="mono">corp.</td><td class="r">R$ 638,94</td></tr>
+      <tr><td class="mono">TXMP000008</td><td class="mono">02/07</td><td>Transporte Recife (ida)</td><td class="mono">corp.</td><td class="r">R$ 638,94</td></tr>
       </tbody></table>
+      <div style="font-size:0.66rem;color:var(--text-dim);margin-top:0.4rem">— = data não registrada no ERP · corp. = 100% reembolsável (prioridade 2 na fila de reembolso, junto ao corporativo)</div>
       <div class="tfoot"><span>8 lançamentos · Fecha 29/07 · Vence 04/08</span><span class="total">R$ 1.749,35</span></div>
     </div>
 
     <div id="lrcv" class="pane">
-      <table><thead><tr><th>TX</th><th>Tipo</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TX28001</td><td>Pamonha e canjica Santo Antônio</td><td class="r" style="color:var(--red)">− R$ 70,00</td></tr>
-      <tr><td class="mono">TX28002</td><td>Pamonha e canjica Santo Antônio</td><td class="r" style="color:var(--red)">− R$ 60,00</td></tr>
-      <tr><td class="mono">TX28003</td><td>Devolução frango (mainha)</td><td class="r" style="color:var(--green)">+ R$ 64,00</td></tr>
-      <tr><td class="mono">TX000039</td><td>Empréstimo pessoal ao pai (Edgley)</td><td class="r" style="color:var(--red)">− R$ 150,00</td></tr>
-      <tr><td class="mono">TX000040</td><td>Devolução empréstimo (pai)</td><td class="r" style="color:var(--green)">+ R$ 150,00</td></tr>
-      <tr><td class="mono">TX000038</td><td>PIX Cleston Da Silva</td><td class="r" style="color:var(--red)">− R$ 33,00</td></tr>
-      <tr><td class="mono">TX000044</td><td>Pagamento Magalupay</td><td class="r" style="color:var(--red)">− R$ 112,61</td></tr>
-      <tr><td class="mono">TX000045</td><td>Depósito teste Necton</td><td class="r" style="color:var(--red)">− R$ 1,00</td></tr>
-      <tr><td class="mono">TX000037</td><td>Sinal pediatra Júlio (via Vanessa)</td><td class="r" style="color:var(--red)">− R$ 50,00</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Tipo</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TX28001</td><td class="mono">27/06</td><td>Pamonha e canjica Santo Antônio</td><td class="r" style="color:var(--red)">− R$ 70,00</td></tr>
+      <tr><td class="mono">TX28002</td><td class="mono">12/07</td><td>Pamonha e canjica Santo Antônio</td><td class="r" style="color:var(--red)">− R$ 60,00</td></tr>
+      <tr><td class="mono">TX28003</td><td class="mono">12/07</td><td>Devolução frango (mainha)</td><td class="r" style="color:var(--green)">+ R$ 64,00</td></tr>
+      <tr><td class="mono">TX000039</td><td class="mono">03/07</td><td>Empréstimo pessoal ao pai (Edgley)</td><td class="r" style="color:var(--red)">− R$ 150,00</td></tr>
+      <tr><td class="mono">TX000040</td><td class="mono">03/07</td><td>Devolução empréstimo (pai)</td><td class="r" style="color:var(--green)">+ R$ 150,00</td></tr>
+      <tr><td class="mono">TX000038</td><td class="mono">04/07</td><td>PIX Cleston Da Silva</td><td class="r" style="color:var(--red)">− R$ 33,00</td></tr>
+      <tr><td class="mono">TX000044</td><td class="mono">06/07</td><td>Pagamento Magalupay</td><td class="r" style="color:var(--red)">− R$ 112,61</td></tr>
+      <tr><td class="mono">TX000045</td><td class="mono">10/07</td><td>Depósito teste Necton</td><td class="r" style="color:var(--red)">− R$ 1,00</td></tr>
+      <tr><td class="mono">TX000037</td><td class="mono">13/07</td><td>Sinal pediatra Júlio (via Vanessa)</td><td class="r" style="color:var(--red)">− R$ 50,00</td></tr>
       </tbody></table>
       <div class="callout ok">PIX Wallace extinta em 13/07/2026: 6 lançamentos migrados para Caixa Variável, saldo de R$40,00 transferido integralmente.</div>
       <div class="tfoot"><span>Saídas R$476,61 · Entradas R$214,00</span><span class="total">Líquido − R$262,61</span></div>
     </div>
 
     <div id="lrei" class="pane">
-      <table><thead><tr><th>ID</th><th>Credora</th><th>Devedora</th><th class="r">Valor</th><th>Status</th></tr></thead><tbody>
-      <tr><td class="mono">LREI0001</td><td>CC-202 · Manutenção</td><td>CC-101 · Caixa Variável</td><td class="r">R$ 178,64</td><td><span class="badge br">Ativo</span></td></tr>
+      <table><thead><tr><th>ID</th><th>Data</th><th>Credora</th><th>Devedora</th><th class="r">Valor</th><th>Status</th></tr></thead><tbody>
+      <tr><td class="mono">LREI0001</td><td class="mono">12/07</td><td>CC-202 · Manutenção</td><td>CC-101 · Caixa Variável</td><td class="r">R$ 178,64</td><td><span class="badge br">Ativo</span></td></tr>
       </tbody></table>
-      <div class="callout warn">Recompor via reembolso Wärtsilä ou salário de 25/07/2026.</div>
+      <div class="callout warn">Recompor via reembolso Wärtsilä ou salário de 25/07/2026. Caixa Variável segue com folga (saldo real R$2.348,20 vs meta R$2.000,00 = R$348,20 acima), suficiente para liquidar quando confirmado — mesmo após pagar os R$178,64, restaria R$169,56 acima da meta.</div>
     </div>
 
     <div id="lrdoacao" class="pane">
@@ -638,20 +646,20 @@
     </div>
 
     <div id="lrpv" class="pane">
-      <table><thead><tr><th>TX</th><th>Descrição</th><th>Tipo</th><th class="r">Valor</th></tr></thead><tbody>
-      <tr><td class="mono">TX000042</td><td>Transferência Pix Geral (autonomia)</td><td style="color:var(--text-success)">Entrada</td><td class="r">R$ 300,00</td></tr>
-      <tr><td class="mono">TX000043</td><td>PIX diversos Vanessa</td><td style="color:var(--text-success)">Entrada</td><td class="r">R$ 30,00</td></tr>
-      <tr><td class="mono">TX000055</td><td>Recebido de Wallace (pediatra Júlio)</td><td style="color:var(--text-success)">Entrada</td><td class="r">R$ 50,00</td></tr>
-      <tr><td class="mono">TX000046</td><td>PIX Romário Nogueira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 62,00</td></tr>
-      <tr><td class="mono">TX000047</td><td>PIX Vitoria Drieli</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 111,00</td></tr>
-      <tr><td class="mono">TX000048</td><td>PIX Romário Nogueira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 44,00</td></tr>
-      <tr><td class="mono">TX000049</td><td>PIX para Wallace</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 30,00</td></tr>
-      <tr><td class="mono">TX000050</td><td>PIX Vitoria Drieli</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 26,00</td></tr>
-      <tr><td class="mono">TX000051</td><td>PIX Rebeca de Souza Oliveira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 31,50</td></tr>
-      <tr><td class="mono">TX000052</td><td>PIX Romário Nogueira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 68,00</td></tr>
-      <tr><td class="mono">TX000053</td><td>PIX Vanessa - uso próprio</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 9,36</td></tr>
-      <tr><td class="mono">TX000054</td><td>H57 Store Minimercados</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 14,99</td></tr>
-      <tr><td class="mono">TX000056</td><td>Sinal pediatra Júlio (repasse)</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 50,00</td></tr>
+      <table><thead><tr><th>TX</th><th>Data</th><th>Descrição</th><th>Tipo</th><th class="r">Valor</th></tr></thead><tbody>
+      <tr><td class="mono">TX000042</td><td class="mono">04/07</td><td>Transferência Pix Geral (autonomia)</td><td style="color:var(--text-success)">Entrada</td><td class="r">R$ 300,00</td></tr>
+      <tr><td class="mono">TX000043</td><td class="mono">05/07</td><td>PIX diversos Vanessa</td><td style="color:var(--text-success)">Entrada</td><td class="r">R$ 30,00</td></tr>
+      <tr><td class="mono">TX000055</td><td class="mono">13/07</td><td>Recebido de Wallace (pediatra Júlio)</td><td style="color:var(--text-success)">Entrada</td><td class="r">R$ 50,00</td></tr>
+      <tr><td class="mono">TX000046</td><td class="mono">27/06</td><td>PIX Romário Nogueira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 62,00</td></tr>
+      <tr><td class="mono">TX000047</td><td class="mono">27/06</td><td>PIX Vitoria Drieli</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 111,00</td></tr>
+      <tr><td class="mono">TX000048</td><td class="mono">03/07</td><td>PIX Romário Nogueira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 44,00</td></tr>
+      <tr><td class="mono">TX000049</td><td class="mono">03/07</td><td>PIX para Wallace</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 30,00</td></tr>
+      <tr><td class="mono">TX000050</td><td class="mono">04/07</td><td>PIX Vitoria Drieli</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 26,00</td></tr>
+      <tr><td class="mono">TX000051</td><td class="mono">04/07</td><td>PIX Rebeca de Souza Oliveira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 31,50</td></tr>
+      <tr><td class="mono">TX000052</td><td class="mono">10/07</td><td>PIX Romário Nogueira</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 68,00</td></tr>
+      <tr><td class="mono">TX000053</td><td class="mono">10/07</td><td>PIX Vanessa - uso próprio</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 9,36</td></tr>
+      <tr><td class="mono">TX000054</td><td class="mono">12/07</td><td>H57 Store Minimercados</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 14,99</td></tr>
+      <tr><td class="mono">TX000056</td><td class="mono">13/07</td><td>Sinal pediatra Júlio (repasse)</td><td style="color:var(--text-danger)">Saída</td><td class="r">R$ 50,00</td></tr>
       </tbody></table>
       <div class="callout ok">Saldo real da Caixa Pix Geral (confirmado no app, 13/07/2026): <strong>R$ 226,52</strong>. O total abaixo é só o fluxo líquido destes 13 PIX específicos, não o saldo da caixa.</div>
       <div class="tfoot"><span>13 lançamentos (fluxo do período)</span><span class="total">− R$ 66,85</span></div>
@@ -663,9 +671,11 @@
   <div class="card" style="border-left:3px solid var(--green)">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem">
       <div><div style="font-size:0.72rem;color:var(--text-mid)">Meta mensal (20% do salário)</div><div style="font-weight:600">R$ 6.741,76</div></div>
-      <span class="badge bg">Meta superada</span>
+      <span class="badge bg">Total investido R$11.701,51 · Superada +R$4.958,75</span>
     </div>
-    <div class="row"><span class="k">Valor separado (BTG 25/06)</span><span class="v" style="color:var(--green)">R$ 11.700,51</span></div>
+    <div class="row"><span class="k">Aporte BTG Pactual (25/06)</span><span class="v" style="color:var(--green)">R$ 11.700,51</span></div>
+    <div class="row"><span class="k">Depósito ativação Necton (10/07)</span><span class="v" style="color:var(--green)">R$ 1,00</span></div>
+    <div class="row" style="font-weight:600"><span class="k">Total investido no mês (BTG+Necton)</span><span class="v" style="color:var(--green)">R$ 11.701,51</span></div>
     <div class="row"><span class="k">Excedente acima da meta</span><span class="v" style="color:var(--green)">R$ 4.958,75</span></div>
   </div>
 
@@ -677,11 +687,12 @@
       <div><div style="font-size:0.72rem;color:var(--text-mid)">Capital travado</div><div style="font-weight:600;font-size:1.1rem">R$ 19.422,00</div></div>
       <div><div style="font-size:0.72rem;color:var(--text-mid)">Lucro em aberto</div><div style="font-weight:600;font-size:1.1rem;color:var(--green)">R$ 94,81</div></div>
     </div>
-    <table><thead><tr><th>Ativo</th><th>Strike</th><th>Venc.</th><th>Contratos</th><th class="r">Prêmio</th><th class="r">Lucro</th></tr></thead><tbody>
-    <tr><td>PETR4 PUT</td><td>36,86</td><td>JUL/26</td><td style="text-align:center">1</td><td class="r">R$ 39,97</td><td class="r" style="color:var(--green)">R$ 19,97</td></tr>
-    <tr><td>PETR4 PUT</td><td>36,86</td><td>AGO/26</td><td style="text-align:center">2</td><td class="r">R$ 154,84</td><td class="r" style="color:var(--green)">R$ 74,84</td></tr>
-    <tr><td>ITUB4 PUT</td><td>41,82</td><td>21/08/26</td><td style="text-align:center">2</td><td class="r">R$ 177,04</td><td class="r" style="color:var(--text-dim)">R$ 0,00</td></tr>
+    <table><thead><tr><th>Ativo</th><th>Strike</th><th>Venc.</th><th>Contratos</th><th class="r">Prêmio</th><th class="r">Lucro</th><th class="r">Rentab.</th></tr></thead><tbody>
+    <tr><td>PETR4 PUT</td><td>36,86</td><td>JUL/26</td><td style="text-align:center">1</td><td class="r">R$ 39,97</td><td class="r" style="color:var(--green)">R$ 19,97</td><td class="r" style="color:var(--green)">0,54%</td></tr>
+    <tr><td>PETR4 PUT</td><td>36,86</td><td>AGO/26</td><td style="text-align:center">2</td><td class="r">R$ 154,84</td><td class="r" style="color:var(--green)">R$ 74,84</td><td class="r" style="color:var(--green)">1,02%</td></tr>
+    <tr><td>ITUB4 PUT</td><td>41,82</td><td>21/08/26</td><td style="text-align:center">2</td><td class="r">R$ 177,04</td><td class="r" style="color:var(--text-dim)">R$ 0,00</td><td class="r" style="color:var(--text-dim)">0,00%</td></tr>
     </tbody></table>
+    <div style="font-size:0.68rem;color:var(--text-dim);margin-top:0.5rem">Rentabilidade = Lucro líquido realizado ÷ Capital travado na posição. ITUB4 ainda não realizou lucro — prêmio de R$177,04 integral em aberto (posição ainda ATIVA, vencimento 21/08/26), por isso 0,00% até fechar ou expirar.</div>
   </div>
 
   <!-- 18 -->
@@ -714,10 +725,10 @@
   <div class="card" style="border-left:3px solid var(--green);margin-bottom:1rem">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
       <div style="font-size:0.78rem;color:var(--text-mid)">Necessidade líquida do salário (dia 25)</div>
-      <span class="badge bg">Já garantido: R$ 471,47</span>
+      <span class="badge bg">Já garantido: R$ 954,90</span>
     </div>
-    <div style="font-weight:700;font-size:1.4rem;margin-bottom:0.4rem">R$ 13.773,63</div>
-    <div style="font-size:0.72rem;color:var(--text-dim)">Bruta assume nenhuma fatura provisionada (pior cenário). Líquida desconta o que já está garantido nas Caixas Mercado Pago e Visa Infinite. Wärtsilä nunca entra nessa conta — é reembolsável, sempre R$0 de impacto. PIX de R$1.749,35 para Caixa Mercado Pago confirmado em 14/07/2026, cobrindo 100% do provisionamento não-reembolsável do Mercado Pago.</div>
+    <div style="font-weight:700;font-size:1.4rem;margin-bottom:0.4rem">R$ 13.290,20</div>
+    <div style="font-size:0.72rem;color:var(--text-dim)">Bruta assume nenhuma fatura provisionada (pior cenário). Líquida desconta o que já está garantido, seguindo a ordem oficial de prioridade do reembolso Wärtsilä: 1) Fatura Wärtsilä (R$0 de impacto, sempre) → 2) Mercado Pago corporativo → 3) Mercado Pago pessoal → 4) Visa Infinite corporativo (regra nova, 15/07/2026) → 5) sobra vai para Caixa Lance. PIX de R$1.749,35 para Caixa Mercado Pago confirmado em 14/07/2026 já cobriu 100% do provisionamento não-reembolsável do Mercado Pago (R$471,47). Com a regra nova, o corporativo do Visa Infinite (R$483,43) também entra como garantido, elevando o total de R$471,47 para R$954,90.</div>
   </div>
   <div class="card" style="border-left:3px solid var(--accent);margin-bottom:1rem">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem">
@@ -725,7 +736,7 @@
       <span class="badge bg">Queda total: R$2.735,92</span>
     </div>
     <div class="chart-box"><canvas id="cNecessidadeLiquida"></canvas></div>
-    <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.5rem">Simulação mês a mês: cada parcelamento do Visa Infinite avança até encerrar (ex: 4/12 → mais 8 meses), e cada caixa patrimonial recebe Aporte=Meta−Saldo até bater a meta (Aniversário Júlio para em Set/26; Combustível e Churrasco reduzem entre Set-Dez/26). Assume cobertura garantida constante (R$471,47) e boletos/assinaturas/recorrências/consórcios estáveis.</div>
+    <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.5rem">Simulação mês a mês: cada parcelamento do Visa Infinite avança até encerrar (ex: 4/12 → mais 8 meses), e cada caixa patrimonial recebe Aporte=Meta−Saldo até bater a meta (Aniversário Júlio para em Set/26; Combustível e Churrasco reduzem entre Set-Dez/26). Assume cobertura garantida constante (R$954,90 — MP pessoal R$471,47 + Visa Infinite corporativo R$483,43, regra de prioridade de reembolso Wärtsilä de 15/07/2026) e boletos/assinaturas/recorrências/consórcios estáveis. Premissa marcada: o valor corporativo do Visa Infinite recorrente pressupõe viagens/despesas corporativas similares nos próximos meses — recalcular se o padrão mudar.</div>
   </div>
   <div class="card">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem">
@@ -751,7 +762,7 @@
     <div class="row"><span class="k">Projeto Casa Nova</span><span class="badge ba">8,27%</span></div>
     <div class="row"><span class="k">Consórcio Casa Nova</span><span class="badge ba">0,21%</span></div>
     <div class="row"><span class="k">Escola de Júlio</span><span class="badge ba">5,46%</span></div>
-    <div class="row"><span class="k">Meta investimento</span><span class="badge bg">Superada +R$4.958</span></div>
+    <div class="row"><span class="k">Meta investimento</span><span class="badge bg">R$11.701,51 investido · Superada +R$4.958</span></div>
     <div class="row"><span class="k">Empréstimos internos ativos</span><span class="badge br">LREI0001 R$178,64</span></div>
   </div>
 
@@ -802,7 +813,7 @@
     <div class="card">
       <div style="font-size:0.78rem;color:var(--text-mid);margin-bottom:0.8rem">Progresso das metas patrimoniais</div>
       <div class="chart-box wide"><canvas id="g_cMetas"></canvas></div>
-      <div class="legend-note">Meta do Milhão · Projeto Casa Nova · Consórcio Auto · Escola de Júlio</div>
+      <div class="legend-note">Caixas patrimoniais (acumulam permanentemente, nunca zeram no fechamento do ciclo): Meta do Milhão (Reserva+BTG/Necton+Lance+Escola) · Projeto Casa Nova (Lance) · Consórcio Auto · Consórcio Casa Nova · Escola de Júlio.</div>
     </div>
   </div>
 
@@ -874,10 +885,12 @@
         <span class="badge bg">Assinaturas</span>
         <span class="badge bg">Recorrências</span>
         <span class="badge bg">Consórcios</span>
+        <span class="badge bg" style="border-color:var(--accent);color:var(--accent)">Mercado Pago — parte pessoal de Wallace (R$471,47)</span>
         <span class="badge bg" style="border-color:var(--green);color:var(--green)">Escola Júlio (preservada sempre que possível)</span>
       </div>
-      <div class="total-line" style="margin-top:0.8rem"><span>Soma do que não pode cortar (Boletos+Parcelas+Assinaturas+Recorrências+Consórcios)</span><span class="v" style="color:var(--red)">R$ 8.715,29</span></div>
-      <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.5rem">Este é o piso absoluto: mesmo no cenário mais crítico, R$8.715,29 têm que sair todo ciclo, custe o que custar. Ordem de corte quando o modo é Baixo/Crítico: 1) Churrasco → 2) Combustível → 3) Eventos → 4) Manutenção.</div>
+      <div style="font-size:0.7rem;color:var(--text-dim);margin-top:0.6rem">A parte corporativa do Mercado Pago (compras da Wärtsilä, reembolsáveis) NÃO entra neste piso — é sempre R$0 de impacto real, pois é reembolsada. Só a parte pessoal (R$471,47, compras próprias parceladas no cartão MP) é uma dívida real que precisa sair todo ciclo, junto dos boletos e parcelas.</div>
+      <div class="total-line" style="margin-top:0.8rem"><span>Soma do que não pode cortar (Boletos+Parcelas+Assinaturas+Recorrências+Consórcios+MP pessoal)</span><span class="v" style="color:var(--red)">R$ 9.186,76</span></div>
+      <div style="font-size:0.72rem;color:var(--text-dim);margin-top:0.5rem">Este é o piso absoluto: mesmo no cenário mais crítico, R$9.186,76 têm que sair todo ciclo, custe o que custar. Ordem de corte quando o modo é Baixo/Crítico: 1) Churrasco → 2) Combustível → 3) Eventos → 4) Manutenção.</div>
     </div>
 
     <div class="section-num"><span class="n">04</span><h2>Reserva de Emergência — quanto tempo aguenta</h2></div>
@@ -891,11 +904,11 @@
         </div>
         <div class="card" style="border-left:3px solid var(--red)">
           <div style="font-size:0.72rem;color:var(--text-mid)">Desemprego extremo (só o piso)</div>
-          <div style="font-weight:700;font-size:1.2rem;margin:0.3rem 0">R$ 8.715,29 <span style="font-size:0.7rem;font-weight:400;color:var(--text-dim)">/ciclo</span></div>
-          <div style="font-weight:600;color:var(--red)">≈ 11,48 ciclos (~11 meses)</div>
+          <div style="font-weight:700;font-size:1.2rem;margin:0.3rem 0">R$ 9.186,76 <span style="font-size:0.7rem;font-weight:400;color:var(--text-dim)">/ciclo</span></div>
+          <div style="font-weight:600;color:var(--red)">≈ 10,89 ciclos (~10,9 meses)</div>
         </div>
       </div>
-      <div style="font-size:0.72rem;color:var(--text-dim)">Reserva atual: R$100.066,05. No cenário de desemprego total (cortando Custos Variáveis, PIX Vanessa e todas as caixas patrimoniais, pagando só Boletos+Parcelas+Assinaturas+Recorrências+Consórcios), a Reserva aguenta ~4,5 meses a mais que pagando tudo normal. Regra do sistema: Reserva de Emergência e Escola de Júlio nunca podem ser credoras de empréstimo interno, nem nesse cenário.</div>
+      <div style="font-size:0.72rem;color:var(--text-dim)">Reserva atual: R$100.066,05. No cenário de desemprego total (cortando Custos Variáveis, PIX Vanessa e todas as caixas patrimoniais, pagando só Boletos+Parcelas+Assinaturas+Recorrências+Consórcios+MP pessoal), a Reserva aguenta ~3,9 meses a mais que pagando tudo normal. Regra do sistema: Reserva de Emergência e Escola de Júlio nunca podem ser credoras de empréstimo interno, nem nesse cenário.</div>
     </div>
 
     <div class="section-num"><span class="n">05</span><h2>Estimador de Salário do Mês</h2></div>
@@ -1048,14 +1061,14 @@ new Chart(document.getElementById('cNecessidadeLiquida'), {
   type:'line',
   plugins:[valueLeaderPlugin],
   data:{labels:['Jul/26','Ago/26','Set/26','Out/26','Nov/26','Dez/26','Jan/27','Mar/27'],
-    datasets:[{data:[13773.63,12408.50,11876.70,11595.56,11327.70,11227.70,11037.71,11037.71],
+    datasets:[{data:[13290.20,11925.07,11393.27,11112.13,10844.27,10744.27,10554.28,10554.28],
     borderColor:'#34c98a',backgroundColor:'rgba(52,201,138,0.08)',
     borderWidth:2,pointBackgroundColor:'#34c98a',pointBorderColor:'#16181b',
     pointBorderWidth:2,pointRadius:4,fill:true,tension:0.35}]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:26}},
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+fmt(c.raw)}}},
     scales:{x:{grid:{display:false},ticks:{font:{size:10}}},
-      y:{grid:{color:grid},min:10500,max:14400,ticks:{callback:v=>Math.round(v/1000)+'k',font:{size:10}}}}}
+      y:{grid:{color:grid},min:10000,max:13800,ticks:{callback:v=>Math.round(v/1000)+'k',font:{size:10}}}}}
 });
 })();
 
@@ -1123,9 +1136,9 @@ new Chart(document.getElementById('g_cPatrim'), {
 
 new Chart(document.getElementById('g_cMetas'), {
   type:'bar',
-  data:{labels:['Meta Milhão','Casa Nova','Consórcio Auto','Escola Júlio'],
-    datasets:[{data:[11.54,8.27,73.94,5.46],
-    backgroundColor:['#9085e9','#3987e5','#34c98a','#e8a63a'],borderRadius:5}]},
+  data:{labels:['Meta Milhão','Casa Nova (Lance)','Consórcio Auto','Consórcio Casa','Escola Júlio'],
+    datasets:[{data:[11.54,8.27,73.94,0.21,5.46],
+    backgroundColor:['#9085e9','#3987e5','#34c98a','#e2554f','#e8a63a'],borderRadius:5}]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.raw+'%'}}},
     scales:{x:{grid:{display:false},ticks:{font:{size:10}}},
@@ -1179,14 +1192,14 @@ new Chart(document.getElementById('g_cNecessidadeLiquida'), {
   type:'line',
   plugins:[valueLeaderPlugin],
   data:{labels:['Jul/26','Ago/26','Set/26','Out/26','Nov/26','Dez/26','Jan/27','Mar/27'],
-    datasets:[{data:[13773.63,12408.50,11876.70,11595.56,11327.70,11227.70,11037.71,11037.71],
+    datasets:[{data:[13290.20,11925.07,11393.27,11112.13,10844.27,10744.27,10554.28,10554.28],
     borderColor:'#34c98a',backgroundColor:'rgba(52,201,138,0.08)',
     borderWidth:2,pointBackgroundColor:'#34c98a',pointBorderColor:'#16181b',
     pointBorderWidth:2,pointRadius:4,fill:true,tension:0.35}]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:26}},
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+fmt(c.raw)}}},
     scales:{x:{grid:{display:false},ticks:{font:{size:10}}},
-      y:{grid:{color:grid},min:10500,max:14400,ticks:{callback:v=>Math.round(v/1000)+'k',font:{size:10}}}}}
+      y:{grid:{color:grid},min:10000,max:13800,ticks:{callback:v=>Math.round(v/1000)+'k',font:{size:10}}}}}
 });
 })();
 
