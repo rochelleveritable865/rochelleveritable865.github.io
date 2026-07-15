@@ -20,7 +20,6 @@
             align-items: center;
         }
 
-        /* TELA DE LOGIN */
         #loginScreen {
             background: white;
             border-radius: 10px;
@@ -54,7 +53,6 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
-            transition: border-color 0.3s;
         }
 
         .form-group input:focus {
@@ -73,7 +71,6 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
         button:hover:not(:disabled) {
@@ -88,15 +85,14 @@
         .error-message {
             color: #e74c3c;
             font-size: 14px;
-            margin-top: 10px;
-            text-align: center;
-            display: none;
+            margin-top: 15px;
             padding: 10px;
             background: #fadbd8;
             border-radius: 5px;
+            display: none;
+            text-align: center;
         }
 
-        /* TELA DO PAINEL (depois do login) */
         #dashboardScreen {
             display: none;
             width: 100%;
@@ -111,11 +107,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #dashboardScreen header h1 {
-            font-size: 20px;
         }
 
         #dashboardScreen header .user-info {
@@ -124,84 +115,48 @@
             align-items: center;
         }
 
-        #dashboardScreen header .user-info span {
-            font-size: 14px;
-            color: #ccc;
-        }
-
         #dashboardScreen header button {
             padding: 8px 16px;
             background: #e74c3c;
             font-size: 14px;
         }
 
-        #dashboardScreen header button:hover {
-            background: #c0392b;
-        }
-
         #dashboardContent {
             flex: 1;
             overflow: auto;
         }
-
-        /* RESPONSIVO */
-        @media (max-width: 600px) {
-            #loginScreen {
-                padding: 30px 20px;
-            }
-
-            #dashboardScreen header {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            #dashboardScreen header .user-info {
-                flex-direction: column;
-                gap: 5px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- TELA DE LOGIN -->
     <div id="loginScreen">
         <h1>🔐 Sistema Wallace Lira</h1>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="seu@email.com" required>
+            <input type="email" id="email" placeholder="seu@email.com">
         </div>
         <div class="form-group">
             <label for="password">Senha</label>
-            <input type="password" id="password" placeholder="Sua senha" required>
+            <input type="password" id="password" placeholder="Sua senha">
         </div>
-        <button id="loginBtn" type="button">Entrar</button>
+        <button id="loginBtn">Entrar</button>
         <div class="error-message" id="errorMessage"></div>
     </div>
 
-    <!-- TELA DO PAINEL (depois do login) -->
     <div id="dashboardScreen">
         <header>
             <h1>📊 Sistema Wallace Lira</h1>
             <div class="user-info">
                 <span id="userEmail"></span>
-                <button type="button" onclick="logoutUser()">Sair</button>
+                <button id="logoutBtn">Sair</button>
             </div>
         </header>
-        <div id="dashboardContent">
-            <!-- O conteúdo do painel vai aqui -->
-        </div>
+        <div id="dashboardContent"></div>
     </div>
 
-    <!-- FIREBASE COMPAT SDK (compatível com GitHub Pages) -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-
+    <!-- CARREGAMENTO DIRETO DO FIREBASE SCRIPT GLOBAL -->
     <script>
-        let auth = null;
-        let firebaseReady = false;
-
-        // Configuração Firebase
-        const firebaseConfig = {
+        // Sem módulos ES6, usando callbacks diretos
+        window.firebaseConfig = {
             apiKey: "AIzaSyCvXsD2v_AGx3vN3kM2z_uIllkRO-Lr2pc",
             authDomain: "sistema-wallace-lira.firebaseapp.com",
             projectId: "sistema-wallace-lira",
@@ -210,77 +165,80 @@
             appId: "1:648799873363:web:28e6796ee70afc3a4b99a6"
         };
 
-        // Inicializar Firebase
-        try {
-            firebase.initializeApp(firebaseConfig);
-            auth = firebase.auth();
-            firebaseReady = true;
-            console.log('✅ Firebase inicializado!');
+        window.authObj = null;
 
-            // Monitorar estado do usuário
-            auth.onAuthStateChanged(function(user) {
-                if (user) {
-                    console.log('Usuário logado:', user.email);
-                    showDashboard(user.email);
-                } else {
-                    console.log('Nenhum usuário logado');
-                    showLoginScreen();
+        // Função auxiliar para fazer fetch
+        function firebaseAuth(email, password) {
+            const url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + window.firebaseConfig.apiKey;
+            
+            return fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                    returnSecureToken: true
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error.message);
                 }
+                return data;
             });
-        } catch (error) {
-            console.error('❌ Erro ao inicializar Firebase:', error);
-            showErrorMessage('Erro ao conectar com o Firebase');
         }
 
-        // FUNÇÃO DE LOGIN
+        // LOGIN
         function login() {
-            if (!firebaseReady || !auth) {
-                showErrorMessage('Sistema não está pronto. Aguarde...');
-                return;
-            }
-
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
+            const btn = document.getElementById('loginBtn');
             const errorDiv = document.getElementById('errorMessage');
-            const loginBtn = document.getElementById('loginBtn');
 
             errorDiv.style.display = 'none';
-            errorDiv.textContent = '';
 
             if (!email || !password) {
-                showErrorMessage('Preencha email e senha');
+                showError('Preencha email e senha');
                 return;
             }
 
-            loginBtn.disabled = true;
-            loginBtn.textContent = 'Entrando...';
+            btn.disabled = true;
+            btn.textContent = 'Entrando...';
 
-            auth.signInWithEmailAndPassword(email, password)
-                .then(function(result) {
+            firebaseAuth(email, password)
+                .then(response => {
                     console.log('✅ Login bem-sucedido');
-                    showDashboard(result.user.email);
+                    window.authObj = response;
+                    localStorage.setItem('auth', JSON.stringify(response));
+                    showDashboard(email);
                 })
-                .catch(function(error) {
-                    loginBtn.disabled = false;
-                    loginBtn.textContent = 'Entrar';
-                    console.error('❌ Erro:', error.code);
-
-                    let msg = 'Erro ao fazer login';
-                    if (error.code === 'auth/user-not-found') msg = 'Usuário não encontrado';
-                    else if (error.code === 'auth/wrong-password') msg = 'Senha incorreta';
-                    else if (error.code === 'auth/invalid-email') msg = 'Email inválido';
-                    else if (error.code === 'auth/too-many-requests') msg = 'Muitas tentativas. Tente depois';
-
-                    showErrorMessage(msg);
+                .catch(error => {
+                    btn.disabled = false;
+                    btn.textContent = 'Entrar';
+                    
+                    let msg = error.message || 'Erro ao fazer login';
+                    if (msg.includes('INVALID_LOGIN_CREDENTIALS')) msg = 'Email ou senha incorretos';
+                    if (msg.includes('USER_DISABLED')) msg = 'Usuário desativado';
+                    
+                    showError(msg);
                 });
         }
 
         // MOSTRAR PAINEL
-        function showDashboard(userEmail) {
+        function showDashboard(email) {
             document.getElementById('loginScreen').style.display = 'none';
             document.getElementById('dashboardScreen').style.display = 'flex';
-            document.getElementById('userEmail').textContent = '👤 ' + userEmail;
+            document.getElementById('userEmail').textContent = '👤 ' + email;
             loadDashboard();
+        }
+
+        // MOSTRAR LOGIN
+        function showLoginScreen() {
+            document.getElementById('loginScreen').style.display = 'block';
+            document.getElementById('dashboardScreen').style.display = 'none';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
         }
 
         // CARREGAR PAINEL HTML
@@ -289,54 +247,56 @@
             content.innerHTML = '<p style="padding: 20px; text-align: center;">⏳ Carregando painel...</p>';
 
             fetch('Sistema_Wallace_Lira_Completo.html')
-                .then(function(response) {
-                    if (!response.ok) throw new Error('Arquivo não encontrado');
-                    return response.text();
-                })
-                .then(function(html) {
-                    // Remover scripts
+                .then(r => r.text())
+                .then(html => {
                     html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
                     content.innerHTML = html;
                     console.log('✅ Painel carregado');
                 })
-                .catch(function(error) {
-                    console.error('❌ Erro ao carregar:', error);
-                    content.innerHTML = '<div style="padding: 40px; text-align: center; color: #e74c3c;"><h2>⚠️ Erro ao carregar painel</h2><p>Verifique se "Sistema_Wallace_Lira_Completo.html" está na mesma pasta.</p></div>';
+                .catch(error => {
+                    console.error('❌ Erro:', error);
+                    content.innerHTML = '<div style="padding: 40px; text-align: center; color: #e74c3c;"><h2>⚠️ Erro</h2><p>Arquivo "Sistema_Wallace_Lira_Completo.html" não encontrado</p></div>';
                 });
         }
 
-        // MOSTRAR LOGIN
-        function showLoginScreen() {
-            document.getElementById('loginScreen').style.display = 'block';
-            document.getElementById('dashboardScreen').style.display = 'none';
-        }
-
         // LOGOUT
-        function logoutUser() {
-            auth.signOut().then(function() {
-                console.log('✅ Logout realizado');
-                document.getElementById('email').value = '';
-                document.getElementById('password').value = '';
-                showLoginScreen();
-            }).catch(function(error) {
-                showErrorMessage('Erro ao fazer logout');
-            });
+        function logout() {
+            localStorage.removeItem('auth');
+            window.authObj = null;
+            showLoginScreen();
         }
 
-        // MOSTRAR ERRO
-        function showErrorMessage(msg) {
+        // ERRO
+        function showError(msg) {
             const errorDiv = document.getElementById('errorMessage');
             errorDiv.textContent = msg;
             errorDiv.style.display = 'block';
+            console.error('❌', msg);
         }
 
         // EVENTOS
         document.getElementById('loginBtn').addEventListener('click', login);
-        document.getElementById('email').addEventListener('keypress', function(e) {
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+
+        document.getElementById('email').addEventListener('keypress', e => {
             if (e.key === 'Enter') login();
         });
-        document.getElementById('password').addEventListener('keypress', function(e) {
+        document.getElementById('password').addEventListener('keypress', e => {
             if (e.key === 'Enter') login();
+        });
+
+        // VERIFICAR SE JÁ ESTÁ LOGADO
+        window.addEventListener('load', () => {
+            const auth = localStorage.getItem('auth');
+            if (auth) {
+                try {
+                    window.authObj = JSON.parse(auth);
+                    const email = window.authObj.email || 'usuário';
+                    showDashboard(email);
+                } catch (e) {
+                    showLoginScreen();
+                }
+            }
         });
     </script>
 </body>
